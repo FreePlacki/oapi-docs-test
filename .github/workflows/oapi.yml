@@ -11,13 +11,16 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build-docs:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install Redoc CLI
         run: npm install -g redoc-cli
@@ -29,15 +32,58 @@ jobs:
           redoc-cli bundle contract/backend/openapi.yaml -o public/backend.html
           redoc-cli bundle contract/gpu/openapi.yaml -o public/gpu.html
 
-          cat <<EOF > public/index.html
-          <html>
-            <body>
-              <h1>REST API Docs</h1>
-              <ul>
-                <li><a href="./backend.html">Backend API</a></li>
-                <li><a href="./gpu.html">GPU API</a></li>
-              </ul>
-            </body>
+          cat <<'EOF' > public/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <title>API Documentation</title>
+            <style>
+              body {
+                font-family: Arial, sans-serif;
+                background: #0f172a;
+                color: #e2e8f0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+              }
+              .container {
+                text-align: center;
+              }
+              h1 {
+                margin-bottom: 40px;
+              }
+              .links {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+              }
+              a {
+                text-decoration: none;
+                padding: 15px 30px;
+                border-radius: 10px;
+                background: #1e293b;
+                color: #38bdf8;
+                font-size: 18px;
+                transition: 0.2s;
+              }
+              a:hover {
+                background: #334155;
+                transform: translateY(-2px);
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h1>API Documentation</h1>
+              <div class="links">
+                <a href="./backend.html">Backend API</a>
+                <a href="./gpu.html">GPU API</a>
+              </div>
+            </div>
+          </body>
           </html>
           EOF
 
