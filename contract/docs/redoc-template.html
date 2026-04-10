@@ -1,19 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>API Documentation</title>
   <meta charset="utf-8"/>
-  <title>GPU-Share REST API Docs</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      background: #1d2021 !important;
-      color: #fbf1c7 !important;
+      padding: 0;
     }
   </style>
 </head>
-
 <body>
-  {{{redocHTML}}}
+  <redoc id='redoc-container'></redoc>
+  <script src="https://cdn.jsdelivr.net/npm/redoc@latest/bundles/redoc.standalone.js"></script>
+  <script>
+    Redoc.init(
+      '<!-- spec-url -->',
+      {
+        theme: {
+          colors: {
+            primary: {
+              main: '#458588'
+            },
+            success: {
+              main: '#98971a'
+            },
+            error: {
+              main: '#cc241d'
+            },
+            warning: {
+              main: '#d79921'
+            },
+            info: {
+              main: '#689d6a'
+            },
+            text: {
+              primary: '#fbf1c7',
+              secondary: '#7c6f64'
+            },
+            border: {
+              light: '#282828'
+            },
+            http: {
+              get: '#98971a',
+              post: '#458588',
+              put: '#d79921',
+              delete: '#cc241d',
+              patch: '#b16286',
+              options: '#7c6f64',
+              head: '#7c6f64',
+              trace: '#7c6f64'
+            }
+          },
+          sidebar: {
+            backgroundColor: '#1d2021',
+            textColor: '#fbf1c7',
+            activeBackgroundColor: '#282828',
+            activeBorder: '#458588'
+          },
+          rightPanel: {
+            backgroundColor: '#282828',
+            textColor: '#fbf1c7'
+          },
+          typography: {
+            fontSize: '14px',
+            fontFamily: 'Roboto, sans-serif'
+          }
+        }
+      },
+      document.getElementById('redoc-container')
+    );
+  </script>
 </body>
 </html>
+
