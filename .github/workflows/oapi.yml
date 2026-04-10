@@ -29,11 +29,13 @@ jobs:
         run: |
           mkdir -p public
 
-          redoc-cli bundle contract/backend/openapi.yaml -o public/backend.json
+          redoc-cli bundle contract/backend/openapi.yaml \
+            # --template contract/docs/redoc-template.html \
+            -o public/backend.html
 
-          # redoc-cli bundle contract/gpu/openapi.yaml \
-          #   --template contract/docs/redoc-template.html \
-          #   -o public/gpu.html
+          redoc-cli bundle contract/gpu/openapi.yaml \
+            # --template contract/docs/redoc-template.html \
+            -o public/gpu.html
 
           cp contract/docs/redoc-template.html public/backend.html
 
