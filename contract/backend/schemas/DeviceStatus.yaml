@@ -1,0 +1,24 @@
+type: object
+required:
+  - deviceId
+  - state
+  - temperatureC
+  - utilizationPercent
+  - memoryUsedMb
+  - lastHeartbeat
+properties:
+  deviceId:
+    type: string
+  state:
+    $ref: "./State.yaml"
+  temperatureC:
+    type: integer
+  utilizationPercent:
+    type: integer
+    minimum: 0
+    maximum: 100
+  memoryUsedMb:
+    type: integer
+  lastHeartbeat:
+    type: string
+    format: date-time
