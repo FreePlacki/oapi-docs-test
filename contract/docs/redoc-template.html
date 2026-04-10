@@ -38,39 +38,39 @@
 </head>
 
 <body>
-  <redoc spec-url="{{SPEC_URL}}"></redoc>
+  <redoc></redoc>
 
   <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"></script>
 
-  <script>
-    Redoc.init("{{SPEC_URL}}", {
-      theme: {
-        colors: {
-          primary: { main: "#83a598" },
-          success: { main: "#b8bb26" },
-          warning: { main: "#fabd2f" },
-          error:   { main: "#fb4934" },
-          text: {
-            primary: "#fbf1c7",
-            secondary: "#ebdbb2"
-          },
-          http: {
-            get: "#83a598",
-            post: "#b8bb26",
-            put: "#fabd2f",
-            delete: "#fb4934"
-          }
+<script>
+  Redoc.init(undefined, {
+    theme: {
+      colors: {
+        primary: { main: "#83a598" },
+        success: { main: "#b8bb26" },
+        warning: { main: "#fabd2f" },
+        error:   { main: "#fb4934" },
+        text: {
+          primary: "#fbf1c7",
+          secondary: "#ebdbb2"
         },
-        sidebar: {
-          backgroundColor: "#1d2021",
-          textColor: "#ebdbb2"
-        },
-        rightPanel: {
-          backgroundColor: "#282828",
-          textColor: "#ebdbb2"
+        http: {
+          get: "#83a598",
+          post: "#b8bb26",
+          put: "#fabd2f",
+          delete: "#fb4934"
         }
+      },
+      sidebar: {
+        backgroundColor: "#1d2021",
+        textColor: "#ebdbb2"
+      },
+      rightPanel: {
+        backgroundColor: "#282828",
+        textColor: "#ebdbb2"
       }
-    });
-  </script>
+    }
+  }, document.querySelector('redoc'));
+</script>
 </body>
 </html>
