@@ -6,7 +6,7 @@ cd backend && go generate ./...
 cd ../gpu && go generate ./...
 ```
 
-Thiswill generate `backend/internal/api/oas_*.go` and `gpu/internal/coordinator/internal/api/oas_*.go`.
+This will generate `backend/internal/api/oas_*.go` and `gpu/internal/coordinator/internal/api/oas_*.go`.
 
 Some useful links:
 
