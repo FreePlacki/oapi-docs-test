@@ -26,7 +26,6 @@ jobs:
         run: npm install -g redoc-cli
 
       - name: Generate docs
-      - name: Generate docs
         run: |
           mkdir -p public
 
